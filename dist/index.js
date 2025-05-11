@@ -1,23 +1,29 @@
 "use strict";
-//--------
-// tuples
-//--------
-let person = ['isa', 10, true];
-//--------
-// tuples examples
-//--------
-let hsla = [100, 'red', '50%', 0.5];
-let xy = [94.4, 29.2];
-function useCoords() {
-    // get coords
-    const lat = 100;
-    const long = 200;
-    return [lat, long];
+const authorOne = {
+    name: 'Isa Reinert',
+    age: 40,
+};
+console.log(authorOne);
+;
+const newPost = {
+    title: 'New Post',
+    body: 'This is a new post',
+    tags: ['post', 'new'],
+    create_at: new Date(),
+    author: authorOne,
+};
+console.log(newPost);
+//--------------------------------
+// as function argument type
+//--------------------------------
+function createPost(post) {
+    console.log(`Created post: ${post.title} by ${post.author.name}`);
 }
-const [lat, long] = useCoords();
-//---------
-// named tuples
-//---------
-let user;
-user = ['isa', 10];
-console.log(user[0]);
+createPost(newPost);
+//-------------------------
+// with arrays
+//-------------------------
+let posts = [];
+posts.push(newPost);
+posts.push(newPost);
+console.log(posts);
