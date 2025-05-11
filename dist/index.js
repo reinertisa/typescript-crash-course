@@ -1,47 +1,23 @@
 "use strict";
-//-------
-// arrays
-//-------
-let names = ['Isa', 'Fezzik', 'Inigo', 'Cat'];
-let ages = [23, 25, 21, 22];
-names.push('Sade');
-// names.push(24);
-ages.push(33);
-//ages.push('24');
-//--------------------------------
-// type inference with strings
-//--------------------------------
-let myName = 'Isa';
-myName = 'Fezzik';
-// type interference with arrays
-let fruits = ['apple', 'banana', 'orange'];
-fruits.push('grape');
-const f = fruits[0];
-let things = [1, true, 'hello'];
-// things.push([]);
-things.push(1);
-things.push(false);
-things.push('world');
-const t = things[0];
-//--------------------------------
-// object literals
-//--------------------------------
-let user = {
-    firstName: 'Isa',
-    age: 40,
-    id: 1
-};
-console.log(user);
-user.firstName = 'Sade';
-user.age = 16;
-user.id = 3;
-console.log(user);
-//--------------------------------
-// type inference with objects
-//--------------------------------
-let person = {
-    firstName: 'Isa',
-    lastName: 'Fezzik',
-    age: 23,
-    isMarried: false
-};
+//---------
+// functions
+//---------
+function addTwoNumbers(a, b) {
+    return a + b;
+}
+console.log(addTwoNumbers(1, 2));
+const subtractTwoNumber = (a, b) => a - b;
+console.log(subtractTwoNumber(1, 2));
+function addAllNumbers(items) {
+    const total = items.reduce((a, c) => a + c, 0);
+    console.log(total);
+}
+addAllNumbers([1, 2, 3, 4, 5]);
+//---------
+// return type interference
+//---------
+function formatGreeting(name, greeting) {
+    return `${greeting}, ${name}`;
+}
+const result = formatGreeting('John', 'Hello');
+console.log(result);
