@@ -1,38 +1,35 @@
 //--------
-// type aliases
+// union types
 //--------
 
-// example 1 - tuple
+let someId: number | string
+someId = 123
+someId = 'abc'
 
-type Rgb = [number, number, number];
+let email: string | null = null;
+email = 'test@gmail.com';
+console.log(email);
 
-function getRandomColor(): Rgb {
-    const r = Math.floor(Math.random() * 255);
-    const g = Math.floor(Math.random() * 255);
-    const b = Math.floor(Math.random() * 255);
+type Id = number | string
+let anotherId: Id
+anotherId = 'isa'
+console.log(anotherId);
+anotherId = 123
+console.log(anotherId);
 
-    return [r, g, b];
+
+//--------
+// union type pitfall
+//--------
+
+function swapIdType(id: Id): Id {
+    // can only use props and methods common to
+    // both number and string
+    // parseInt(id) --> not allowed
+
+    parseInt(id)
+
+    return id;
 }
 
-const colorOne = getRandomColor();
-const colorTwo = getRandomColor();
-console.log(colorOne, colorTwo);
-
-// example 2 - object literal
-
-type User = {
-    name: string
-    score: number
-}
-
-const userOne: User = {
-    name: 'Sade',
-    score: 100,
-}
-
-function formatUser(user: User): void {
-    console.log(`${user.name} has ${user.score} points`);
-}
-
-formatUser(userOne);
-formatUser({name: 'Isa Reinert', score: 1000})
+swapIdType('123')
